@@ -1,0 +1,62 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cont {
+  text-align: center;
+  width: 90%;
+  height: 180px;
+  background-color: #408dfb;
+  font-size: 300%;
+  border: 2px solid;
+  font-weight: bolder;
+  padding-top: 50px;
+  color: white;
+}
+
+.text {
+  color: black;
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+h1 {
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.container1 {
+  background-color: #408dfb;
+  color: white;
+}
+.contain {
+  display: flex;
+}
+
+.seebiz1 {
+  padding-left: 70px;
+  width: 40%;
+}
+.seebiz2 {
+  width: 30%;
+}
+.seebiz3 {
+  width: 25%;
+}
+.seebiz4 {
+  width: 30%;
+}

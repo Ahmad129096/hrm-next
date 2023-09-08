@@ -8,7 +8,7 @@ export const authOptions: NextAuthOptions = {
   // This is a temporary fix for prisma client.
   // @see https://github.com/prisma/prisma/issues/16117
   pages: {
-    signIn: "/login",
+    signIn: "/signin",
   },
   session: {
     strategy: "jwt",
@@ -38,18 +38,16 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        const user = { email: "abc@gmail.com", password: "password" };
+        const user = {
+          email: credentials?.email,
+          password: credentials?.password,
+        };
 
         if (!user) {
           return null;
         }
 
-        return {
-          id: 123,
-          email: user.email,
-          name: "shafique ahmad",
-          randomKey: "Hey cool",
-        };
+        return user;
       },
     }),
   ],
