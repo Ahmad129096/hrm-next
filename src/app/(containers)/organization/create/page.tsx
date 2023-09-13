@@ -1,22 +1,23 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
-import { CreateOrganization } from "./createOrganization";
 import Container from "@mui/material/Container";
-import { OrgDepartment } from "./createDepartment";
-import { EditDepartment } from "./createDepartment/editDepartment";
-import { Labels } from "../../../static";
-import { useAppSelector } from "../../../app/Hooks/useSelector";
-import { useNavigate } from "react-router-dom";
-import { routeNames } from "../../../static";
-const steps = [Labels.STEP_1, Labels.STEP_2];
+import { useAppSelector } from "@/hooks";
+import { useRouter } from "next/navigation";
+import { Labels, routeNames } from "@/static";
+import { CreateOrganization } from "../createOrganization";
+import { OrgDepartment } from "../createDepartment";
+import { EditDepartment } from "../createDepartment/editDepartment";
 
-export const CreateOrganizationComponent = () => {
-  const { START } = routeNames;
-  const navigate = useNavigate();
+const steps = [Labels.STEP_1, Labels.STEP_2];
+const { START } = routeNames;
+
+const CreateOrganizationComponent = () => {
+  const router = useRouter();
   const [activeStep, setActiveStep] = useState(0);
   const status = useAppSelector((state) => state.status);
   const [skipped, setSkipped] = useState(new Set<number>());
@@ -38,7 +39,7 @@ export const CreateOrganizationComponent = () => {
 
   useEffect(() => {
     if (status.createOrganization && status.selectDepartments) {
-      navigate(START);
+      router.push(START);
     } else if (status.createOrganization) {
       setActiveStep(1);
     } else {
@@ -94,3 +95,5 @@ export const CreateOrganizationComponent = () => {
     </Box>
   );
 };
+
+export default CreateOrganizationComponent;

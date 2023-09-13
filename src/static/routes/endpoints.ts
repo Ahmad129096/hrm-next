@@ -13,7 +13,7 @@ export const endPoints = {
   ORGANIZATION_CREATE: "api/createorganization",
   LOGO_DELETE: "api/deleteimage",
   SELECT_DEPARTMENTS: "api/SelectDepartment",
-  GET_DEPARTMENTS:"api/getSelectDepartment",
+  GET_DEPARTMENTS: "api/getSelectDepartment",
   CONFIRM_DEPARTMENTS_DESIGNATIONS: "api/SelectedDepartmentsDesignation",
   GET_COUNTRIES: "api/countriesData",
   GET_STATES: "api/statesData",
@@ -21,15 +21,15 @@ export const endPoints = {
   CREATE_DEPARTMENT: "api/admincreatedepartment",
   CREATE_DESIGNATION: "api/admincreatedesignation",
   GET_DESIGNATION: "api/getDesignation",
-  ADD_EMPLOYEES: "api/createEmployee",
-  VIEW_EMPLOYEES: "api/viewEmployee",
+  ADD_EMPLOYEE: "api/createEmployee",
+  EMPLOYEES: "api/viewEmployee",
   DELETE_EMPLOYEE: "api/deleteEmployee",
 
   GET_EMPLOYEE: "api/responsibleperson",
   GET_PERMISSION: "api/employeePermission",
   APPLY_JOBS: "api/applyjob",
   EDIT_EMPLOYEES: "api/createEmployee",
-  VIEW_EMPLOYEE_BYID: "api/viewEmployee",
+  EMPLOYEES_BYID: "api/viewEmployee",
   UPDATE_EMPLOYEE: "api/updateEmployee",
 
   JOB_SEARCH_TAG: "api/viewJobtags",
@@ -39,9 +39,9 @@ export const endPoints = {
   DELETEJOB: "api/deletejob",
   JOBAPPLICANTS: "api/jobapplicants",
   JOBDETAILS: "api/jobDetail",
-  GET_MODULE:"api/getModules",
+  GET_MODULE: "api/getModules",
 
-  UPDATE_USERROLE: "api/updateDesignation"
+  UPDATE_USERROLE: "api/updateDesignation",
 
   //---------------Auth Routes--------------------
 };

@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAxios } from "@/hooks";
+import { endPoints, routeNames } from "@/static";
 import { SignUpOtpForm } from "./signUpOtpForm";
-import { SignUpOtpInterface } from "../Interfaces";
+import { useAppDispatch, useAxios } from "@/hooks";
+import { SignUpOtpInterface } from "../../Interfaces";
 import { useRouter, useParams } from "next/navigation";
-import { endPoints, routeNames } from "../../../static";
 import { showSnackbar } from "@/redux/slices/snackbarSlice";
 
 const SignUpOtp = () => {

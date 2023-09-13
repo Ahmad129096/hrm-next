@@ -9,10 +9,10 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { Form } from "formik";
-import { Labels } from "../../../static";
+import { Labels } from "@/static";
 import { styled } from "@mui/system";
-import { SignUpOtpProps } from "../Interfaces";
-import { signUpOtp } from "../Validation/authValidation";
+import { signUpOtp } from "../../Validation";
+import { SignUpOtpProps } from "../../Interfaces";
 import { Icons, InputField, ButtonX, FormikForm } from "@/shared";
 
 export const SignUpOtpForm = ({

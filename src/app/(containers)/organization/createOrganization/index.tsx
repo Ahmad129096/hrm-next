@@ -1,16 +1,15 @@
-import { useAxios } from "../../../Hooks";
-import { endPoints, Labels, Content } from "../../../../static";
 import { useEffect, useState } from "react";
-import { initialValue } from "./initialValues";
 import { CreateOrgForm } from "./form";
-import { useAppDispatch } from "../../../../app/Hooks/useDispacter";
-import { showSnackbar } from "../../../../store/slice/snackbarSlice";
-import { login } from "../../../../store/slice/authSlice";
-import { status } from "../../../../store/slice/statusSlice";
-import { getOrganization } from "../../../../store/slice/createOrganization";
+import { initialValue } from "./initialValues";
+import { login } from "@/redux/slices/authSlice";
+import { useAppDispatch, useAxios } from "@/hooks";
+import { status } from "@/redux/slices/statusSlice";
 import { OrganizationInterface } from "../../Interfaces";
+import { showSnackbar } from "@/redux/slices/snackbarSlice";
+import { endPoints, Labels, Content } from "../../../../static";
+import { getOrganization } from "@/redux/slices/createOrganization";
 
-export const CreateOrganization = (props) => {
+export const CreateOrganization = (props: any) => {
   const { correct_date } = Content;
   const { step } = props;
   const { IMG_MSG, CONFIRM_MSG } = Labels;

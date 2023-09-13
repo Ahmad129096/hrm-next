@@ -13,8 +13,8 @@ import { useRouter } from "next/navigation";
 import { Content, endPoints, routeNames } from "@/static";
 import { Capitalize } from "@/utils";
 
-const { ADD_EMPLOYEES } = routeNames;
-const { VIEW_EMPLOYEES, DELETE_EMPLOYEE } = endPoints;
+const { ADD_EMPLOYEE, EDIT_EMPLOYEE } = routeNames;
+const { EMPLOYEES, DELETE_EMPLOYEE } = endPoints;
 
 const ViewEmployees = () => {
   const router = useRouter();
@@ -38,7 +38,7 @@ const ViewEmployees = () => {
     setLoading(true);
     callAxios({
       method: "get",
-      url: `${VIEW_EMPLOYEES}`,
+      url: `${EMPLOYEES}`,
     }).then((res: any) => {
       setemployeeData(res.data);
       setLoading(false);
@@ -99,7 +99,7 @@ const ViewEmployees = () => {
             aria-label="delete"
             sx={{ color: "#5663ed" }}
             onClick={() => {
-              router.push(`${ADD_EMPLOYEES}/${value?._id}`);
+              router.push(`${EDIT_EMPLOYEE}/${value?._id}`);
             }}
           >
             <Icons.BiEdit />
@@ -127,7 +127,7 @@ const ViewEmployees = () => {
           <PageHeader
             btnText={"Add New Employee"}
             header={"EMPLOYEES"}
-            navigate={"/addemployees"}
+            navigate={ADD_EMPLOYEE}
           />
           <TableX headingTitle={columns} TableData={TableData} />
         </>

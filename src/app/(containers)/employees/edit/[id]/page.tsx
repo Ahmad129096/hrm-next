@@ -1,5 +1,6 @@
 "use client";
-import Addemployees from "../page";
+
+import Addemployees from "../../create/page";
 
 const Editemployee = () => {
   return (

@@ -23,8 +23,8 @@ const {
   INITIAL,
   USER_ROLE,
   CREATE_JOB,
-  ADD_EMPLOYEES,
-  VIEW_EMPLOYEES,
+  ADD_EMPLOYEE,
+  EMPLOYEES,
   ADDITIONAL_CHARGE,
 } = routeNames;
 export const SideBarData = () => {
@@ -47,7 +47,7 @@ export const SideBarData = () => {
       items: [
         {
           name: "Add Employee",
-          url: ADD_EMPLOYEES,
+          url: ADD_EMPLOYEE,
           Icon: <AiOutlineUserAdd />,
           status: false,
           permission: usePermissions("employee")?.create,
@@ -55,7 +55,7 @@ export const SideBarData = () => {
 
         {
           name: "View Employees",
-          url: VIEW_EMPLOYEES,
+          url: EMPLOYEES,
           Icon: <GoEye />,
           status: false,
           permission: usePermissions("employee")?.update,

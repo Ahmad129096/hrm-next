@@ -6,6 +6,7 @@ import { Notification } from "@/shared";
 import { persistor } from "@/redux/store";
 import { NextAuthProvider } from "./providers";
 import { PersistGate } from "reduxjs-toolkit-persist/integration/react";
+
 // import { MiniDrawer } from "@/Layout/SideBar";
 
 // export const metadata = {
