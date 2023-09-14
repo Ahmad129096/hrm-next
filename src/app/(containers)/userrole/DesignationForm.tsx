@@ -1,4 +1,4 @@
-import { useAxios } from "../../../app/Hooks";
+import { useAppDispatch, useAxios } from "@/hooks";
 import {
   Box,
   Paper,
@@ -13,12 +13,11 @@ import {
 } from "@mui/material";
 import { endPoints } from "../../../static";
 import { Formik, Form, Field } from "formik";
-import { useAppDispatch } from "../../../app/Hooks/useDispacter";
-import { showSnackbar } from "../../../store/slice/snackbarSlice";
+import { showSnackbar } from "@/redux/slices/snackbarSlice";
 
 const { UPDATE_USERROLE } = endPoints;
 
-export const DesignationHeading = (props) => {
+export const DesignationHeading = (props: any) => {
   const { initialValues } = props;
   const { callAxios } = useAxios();
   const dispatch = useAppDispatch();

@@ -1,3 +1,4 @@
+"use client";
 import { ReactNode, useState, SyntheticEvent } from "react";
 import { DepartmentTable } from "./designation";
 import { Box, Tabs, Tab, Typography } from "@mui/material";
@@ -35,7 +36,7 @@ function a11yProps(index: number) {
   };
 }
 
-export const UserRole = () => {
+const UserRole = () => {
   const [value, setValue] = useState(0);
 
   const handleChange = (_event: SyntheticEvent, newValue: number) => {
@@ -67,3 +68,5 @@ export const UserRole = () => {
     </Box>
   );
 };
+
+export default UserRole;

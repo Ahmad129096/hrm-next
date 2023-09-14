@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Table from "@mui/material/Table";
@@ -10,13 +10,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
-import { useAxios } from "../../../app/Hooks";
 import { endPoints } from "../../../static";
-import { useEffect, useState } from "react";
+import { useAxios } from "@/hooks";
 
 function Row(designationData: any) {
   return (
-    <React.Fragment>
+    <>
       <TableRow>
         <TableCell
           style={{ paddingBottom: 0, paddingTop: 0, border: 0 }}
@@ -84,7 +83,7 @@ function Row(designationData: any) {
           </Box>
         </TableCell>
       </TableRow>
-    </React.Fragment>
+    </>
   );
 }
 

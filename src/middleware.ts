@@ -1,6 +1,15 @@
 export { default } from "next-auth/middleware";
 
 export const config = {
-  matcher: ["/", "/about/:path*", "/content", "/profile", "/employees/:path*"],
+  matcher: [
+    "/",
+    "/content",
+    "/profile",
+    "/userrole",
+    "/about/:path*",
+    "/employees/:path*",
+    "/application/:path*",
+    "/employeeRestrictions",
+  ],
   // matcher: ["/((?!register|api|login).*)"],
 };

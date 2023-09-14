@@ -1,3 +1,4 @@
+"use client";
 import {
   // Chip,
   Table,
@@ -11,10 +12,10 @@ import {
   ButtonGroup,
   TableContainer,
 } from "@mui/material";
-import { useAxios } from "../../../../app/Hooks";
+import { useAxios } from "@/hooks";
 import { useEffect, useState } from "react";
 
-export const ViewSubmittedApplications = () => {
+const ViewSubmittedApplications = () => {
   // const StyledTableCell = styled(TableCell)({
   //   padding: 0,
   // });
@@ -81,3 +82,5 @@ export const ViewSubmittedApplications = () => {
     </TableContainer>
   );
 };
+
+export default ViewSubmittedApplications;

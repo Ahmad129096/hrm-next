@@ -1,6 +1,6 @@
-import { useAxios } from "../../../app/Hooks";
-import { endPoints } from "../../../static";
 import { useEffect, useState } from "react";
+import { useAxios } from "@/hooks";
+import { endPoints } from "../../../static";
 import { DesignationHeading } from "./DesignationForm";
 export function DepartmentTable() {
   const { callAxios } = useAxios();

@@ -1,7 +1,5 @@
 import { FormikForm, ButtonX } from "@/shared";
 import { Field, Form, ErrorMessage } from "formik";
-import { Labels } from "../../../static";
-import { AdditionalChargeProps } from "../Interfaces";
 import {
   CssBaseline,
   Box,
@@ -23,6 +21,8 @@ import {
   Autocomplete,
   TextField,
 } from "@mui/material";
+import { Labels } from "@/static";
+import { AdditionalChargeProps } from "../../Interfaces";
 
 export const AdditionalChargeForm = ({
   initialValue,
@@ -50,7 +50,7 @@ export const AdditionalChargeForm = ({
       initialValues={initialValue}
       onSubmit={handleSubmit}
       enableReinitialize
-      FormData={(props) => {
+      FormData={(props: any) => {
         return (
           <Form>
             <Container component="main" maxWidth="xs">
@@ -120,7 +120,7 @@ export const AdditionalChargeForm = ({
                           </TableRow>
                         </TableHead>
                         <TableBody>
-                          {permission?.map((row, i) => (
+                          {permission?.map((row: any, i: number) => (
                             <TableRow
                               key={i}
                               sx={{

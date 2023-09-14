@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Alert,
@@ -13,13 +14,12 @@ import {
 } from "@mui/material";
 
 import { endPoints, Labels } from "../../../../static";
-import { Icons, ButtonX, FormikForm } from "../../../../app/shared";
 import { Field, Form, ErrorMessage } from "formik";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { useAxios } from "../../../../app/Hooks";
-import { useAppDispatch } from "../../../../app/Hooks/useDispacter";
-import { showSnackbar } from "../../../../store/slice/snackbarSlice";
+import { ButtonX, FormikForm, Icons } from "@/shared";
+import { useAppDispatch, useAxios } from "@/hooks";
+import { showSnackbar } from "@/redux/slices/snackbarSlice";
 
 const { MdCloudUpload } = Icons;
 const { SUBMIT, PLEASE_WAIT, FIELD_SIZE, MARGIN } = Labels;
@@ -31,7 +31,7 @@ const StyledTextField = styled(TextField)`
 `;
 const { APPLY_JOBS } = endPoints;
 
-function nameLengthValidator(file) {
+function nameLengthValidator(file: any) {
   if (file.type !== "application/pdf") {
     return {
       code: "name-too-large",
@@ -42,7 +42,7 @@ function nameLengthValidator(file) {
   return null;
 }
 
-export const NewApplication = () => {
+const NewApplication = () => {
   const [check, setCheck] = useState(false);
   const initialState = {
     source: "",
@@ -79,7 +79,7 @@ export const NewApplication = () => {
       >
         {file.path} - {file.size} bytes
         <ul>
-          {errors.map((e) => (
+          {errors.map((e: any) => (
             <li key={e.code}>{e.message}</li>
           ))}
         </ul>
@@ -87,7 +87,7 @@ export const NewApplication = () => {
       <CssBaseline />
     </>
   ));
-  const onSubmit = (values) => {
+  const onSubmit = (values: any) => {
     setCheck(true);
     const formData: any = new FormData();
     formData.append("file", acceptedFiles);
@@ -108,7 +108,7 @@ export const NewApplication = () => {
     <FormikForm
       initialValues={initialState}
       onSubmit={onSubmit}
-      FormData={(props) => {
+      FormData={(props: any) => {
         return (
           <>
             <Form autoComplete="off">
@@ -222,3 +222,5 @@ export const NewApplication = () => {
     />
   );
 };
+
+export default NewApplication;

@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { Fragment, useState } from "react";
 import {
   Box,
   Grid,
@@ -12,10 +13,9 @@ import {
   Autocomplete,
   CircularProgress,
 } from "@mui/material";
-import { Labels, Content } from "../../../static";
 import { Formik, Form, Field } from "formik";
-import { Icons, MenuField, ProgressLoader } from "../../../app/shared";
-import { Fragment, useState } from "react";
+import { Icons, MenuField, ViewJobSkeleton } from "@/shared";
+import { Content, Labels } from "@/static";
 
 const StyledTextField = styled(TextField)`
   textarea {
@@ -23,36 +23,41 @@ const StyledTextField = styled(TextField)`
     height: 50;
   }
 `;
-export const JobForm = ({
+
+const { RxCross1 } = Icons;
+const { organization_image } = Content;
+const { TITLE, TYPE_FILE, JOB_REQUIREMENTS } = Labels;
+
+export const EditJobForm = ({
   img,
   names,
+  check,
   employees,
-  uploadImage,
   department,
   deleteImage,
+  designation,
+  uploadImage,
   handleSubmit,
   initialValue,
   getDesignation,
-  designation,
-}) => {
-  const { RxCross1 } = Icons;
-  const { organization_image } = Content;
-  const { TITLE, TYPE_FILE, JOB_REQUIREMENTS } = Labels;
+}: any) => {
   const [departmentOpen, setDepartmentOpen] = useState(false);
   const [designationOpen, setDesignationOpen] = useState(false);
 
   const loadingDepartment = departmentOpen && department.length === 0;
-  const loadingDesignation = designationOpen && designation.length === 0;
+  const loadingDesignation = designationOpen && designation.length === 1;
+
+  console.log({ check });
 
   return (
     <>
       {names.length === 0 ? (
-        <ProgressLoader />
+        <ViewJobSkeleton />
       ) : (
         <Grid container direction={"column"} spacing={10}>
           <Grid item>
             <Formik initialValues={initialValue} onSubmit={handleSubmit}>
-              {({ setFieldValue }) => {
+              {({ setFieldValue, setFieldTouched }) => {
                 return (
                   <div>
                     <Form>
@@ -75,37 +80,45 @@ export const JobForm = ({
                             Create Job Request
                           </Typography>
                           <CssBaseline />
-                          <IconButton
-                            color="primary"
-                            aria-label="upload picture"
-                            component="label"
-                            style={{ position: "relative" }}
-                          >
-                            <input
-                              hidden
-                              accept="image/*"
-                              onChange={uploadImage}
-                              type={TYPE_FILE}
-                            />
-                            <img
-                              style={{
-                                height: "150px",
-                                width: "150px",
-                                borderRadius: "80px",
-                              }}
-                              src={!img ? organization_image : img.Location}
-                            />
-                            {img && (
+                          <div>
+                            {check ? (
+                              "image uploading..."
+                            ) : (
+                              <IconButton
+                                color="primary"
+                                aria-label="upload picture"
+                                component="label"
+                                style={{ position: "relative" }}
+                              >
+                                <input
+                                  hidden
+                                  accept="image/*"
+                                  onChange={uploadImage}
+                                  type={TYPE_FILE}
+                                />
+                                <img
+                                  style={{
+                                    height: "150px",
+                                    width: "150px",
+                                    borderRadius: "80px",
+                                  }}
+                                  src={!img ? organization_image : img.Location}
+                                />
+                              </IconButton>
+                            )}
+
+                            {!check && img && (
                               <RxCross1
+                                className="my_delete_icon"
                                 style={{
-                                  position: "absolute",
                                   right: "1px",
                                   top: "1px",
+                                  cursor: "pointer",
                                 }}
                                 onClick={deleteImage}
                               />
                             )}
-                          </IconButton>
+                          </div>
                           <Typography component="h1" variant="h6">
                             Enter Data in this Form
                           </Typography>
@@ -172,11 +185,18 @@ export const JobForm = ({
                               />
                             )}
                             onChange={(_event: any, newValue: any | null) => {
+                              (newValue || newValue === "") &&
+                                setFieldValue("department", newValue._id);
                               getDesignation(newValue);
-                              setFieldValue("department", newValue._id);
+                            }}
+                            onInputChange={(_event: any, _newValue) => {
+                              setFieldValue("designation", "");
+                              setFieldTouched("designation", false);
+                              setFieldTouched("department", false);
                             }}
                           />
                           <Autocomplete
+                            // multiple
                             id="designation"
                             options={designation}
                             onOpen={() => {
@@ -190,8 +210,9 @@ export const JobForm = ({
                               option?._id === value._id
                             }
                             getOptionLabel={(option: any) => option.Name}
-                            onChange={(_, _id) =>
-                              setFieldValue("designation", _id)
+                            onChange={(_, id) =>
+                              (id || id === "") &&
+                              setFieldValue("designation", id)
                             }
                             renderInput={(params) => (
                               <Field

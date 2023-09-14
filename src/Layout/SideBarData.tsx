@@ -26,6 +26,8 @@ const {
   ADD_EMPLOYEE,
   EMPLOYEES,
   ADDITIONAL_CHARGE,
+  NEW_APPLICATION,
+  VIEW_SUBMIITED_APPLICATIONS,
 } = routeNames;
 export const SideBarData = () => {
   // const prem = usePermissions("")
@@ -70,14 +72,14 @@ export const SideBarData = () => {
       items: [
         {
           name: "Add Application",
-          url: "/newapplication",
+          url: NEW_APPLICATION,
           Icon: <AiOutlineFileText />,
           status: false,
           permission: usePermissions("application")?.create,
         },
         {
           name: "Submitted Application",
-          url: "/submittedapplications",
+          url: VIEW_SUBMIITED_APPLICATIONS,
           Icon: <AiOutlineFileText />,
           status: false,
           permission: usePermissions("application")?.create,

@@ -1,24 +1,24 @@
-import { Labels } from "../../../static";
-import { endPoints } from "../../../static";
-import { useAxios } from "../../../app/Hooks";
-import { initialValue } from "./interface";
+"use client";
 import { useEffect, useState } from "react";
-import { showSnackbar } from "../../../store/slice/snackbarSlice";
-import { useAppDispatch } from "../../../app/Hooks/useDispacter";
-import { useNavigate } from "react-router-dom";
 import { JobForm } from "./jobForm";
+import { Labels, endPoints } from "@/static";
+import { useRouter } from "next/navigation";
+import { useAppDispatch, useAxios } from "@/hooks";
+import { showSnackbar } from "@/redux/slices/snackbarSlice";
+import { initialValue } from "../interface";
 
 const {
-  JOB_SEARCH_TAG,
-  ORGANIZATION_LOGO,
   LOGO_DELETE,
-  GET_EMPLOYEE,
-  GET_DEPARTMENT,
   CREATE_JOB,
+  GET_EMPLOYEE,
+  JOB_SEARCH_TAG,
+  GET_DEPARTMENT,
+  ORGANIZATION_LOGO,
 } = endPoints;
 const { IMG_MSG } = Labels;
-export const CreateJob = () => {
-  const navigate = useNavigate();
+
+const CreateJob = () => {
+  const router = useRouter();
   const { callAxios } = useAxios();
   const dispatch = useAppDispatch();
   const [img, setImg] = useState<any>();
@@ -86,7 +86,7 @@ export const CreateJob = () => {
       data: value,
     }).then((res: any) => {
       dispatch(showSnackbar({ message: res.message }));
-      navigate("/viewjob");
+      router.push("/viewjob");
     });
   };
   const getDesignation = (value: any) => {
@@ -112,3 +112,5 @@ export const CreateJob = () => {
     />
   );
 };
+
+export default CreateJob;

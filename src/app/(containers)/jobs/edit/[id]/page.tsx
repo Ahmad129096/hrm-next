@@ -1,12 +1,11 @@
-import { Labels } from "../../../static";
-import { endPoints } from "../../../static";
-import { EditJobForm } from "./editJobForm";
-import { useAxios } from "../../../app/Hooks";
-import { initialValue } from "./interface";
+"use client";
+import { Labels, endPoints } from "@/static";
 import { useEffect, useState } from "react";
-import { showSnackbar } from "../../../store/slice/snackbarSlice";
-import { useAppDispatch } from "../../../app/Hooks/useDispacter";
-import { useNavigate } from "react-router-dom";
+import { EditJobForm } from "../editJobForm";
+import { initialValue } from "../../interface";
+import { showSnackbar } from "@/redux/slices/snackbarSlice";
+import { useAppDispatch, useAxios } from "@/hooks";
+import { useRouter } from "next/navigation";
 
 const {
   JOB_SEARCH_TAG,
@@ -18,8 +17,9 @@ const {
   // GET_DESIGNATION,
 } = endPoints;
 const { IMG_MSG } = Labels;
-export const EditJob = () => {
-  const navigate = useNavigate();
+
+const EditJob = () => {
+  const router = useRouter();
   const { callAxios } = useAxios();
   const dispatch = useAppDispatch();
   const [img, setImg] = useState<any>();
@@ -98,7 +98,7 @@ export const EditJob = () => {
       data: value,
     }).then((res: any) => {
       dispatch(showSnackbar({ message: res.message }));
-      navigate("/viewjob");
+      router.push("/viewjob");
     });
   };
   const getDesignation = (value: any) => {
@@ -127,3 +127,5 @@ export const EditJob = () => {
     />
   );
 };
+
+export default EditJob;

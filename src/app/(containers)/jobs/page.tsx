@@ -1,10 +1,6 @@
+"use client";
 import { useEffect, useState } from "react";
-import { useAxios } from "../../../app/Hooks";
-import { Icons } from "../../../app/shared";
-import { Link } from "react-router-dom";
-import { endPoints, routeNames } from "../../../static";
-import { useNavigate } from "react-router-dom";
-
+import { useRouter } from "next/navigation";
 import {
   Table,
   TableBody,
@@ -17,15 +13,20 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
+import { Icons } from "@/shared";
+import { useAxios } from "@/hooks";
+import { endPoints, routeNames } from "../../../static";
 import { Capitalize, CapitalizeWord } from "../../../utils";
 
-export const ViewJob = () => {
-  const navigate = useNavigate();
+const { BiEdit, AiFillDelete } = Icons;
+const { VIEWJOB, DELETEJOB } = endPoints;
+const { JOBDETAILPAGE, JOBACCEPTPAGE, EDITJOB } = routeNames;
+
+const ViewJob = () => {
+  const router = useRouter();
   const { callAxios } = useAxios();
-  const { JOBDETAILPAGE, JOBACCEPTPAGE } = routeNames;
-  const { BiEdit, AiFillDelete } = Icons;
   const [job, setJob] = useState<any>([]);
-  const { VIEWJOB, DELETEJOB } = endPoints;
 
   useEffect(() => {
     getData();
@@ -46,7 +47,7 @@ export const ViewJob = () => {
     callAxios({
       method: "delete",
       url: `${DELETEJOB}/${id}`,
-    }).then((res) => {
+    }).then((res: any) => {
       if (res) {
         getData();
       }
@@ -78,11 +79,11 @@ export const ViewJob = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell
-                  onClick={() => navigate(`${JOBDETAILPAGE}/${row.slug}`)}
+                  onClick={() => router.push(`${JOBDETAILPAGE}/${row.slug}`)}
                 >
                   <Link
                     style={{ textDecoration: "none", color: "black" }}
-                    to={`${JOBDETAILPAGE}/${row.slug}`}
+                    href={`${JOBDETAILPAGE}/${row.slug}`}
                   >
                     {" "}
                     {CapitalizeWord(row.title)}
@@ -118,7 +119,7 @@ export const ViewJob = () => {
                 <TableCell>
                   <Link
                     style={{ textDecoration: "none", color: "black" }}
-                    to={`${JOBDETAILPAGE}/${row._id}`}
+                    href={`${JOBDETAILPAGE}/${row._id}`}
                   >
                     {" "}
                     {row.applicationCount}
@@ -127,7 +128,7 @@ export const ViewJob = () => {
                 <TableCell>
                   <Button
                     style={{ minWidth: "auto", padding: 3 }}
-                    onClick={() => navigate(`/editjob/${row._id}`)}
+                    onClick={() => router.push(`${EDITJOB}/${row._id}`)}
                     size="small"
                   >
                     <BiEdit />
@@ -142,7 +143,7 @@ export const ViewJob = () => {
                 <TableCell>
                   <Button
                     style={{ minWidth: "auto", padding: 3 }}
-                    onClick={() => navigate(`${JOBACCEPTPAGE}/${row.slug}`)}
+                    onClick={() => router.push(`${JOBACCEPTPAGE}/${row.slug}`)}
                     disabled={row.status !== "pending"}
                   >
                     Publish
@@ -156,3 +157,5 @@ export const ViewJob = () => {
     </div>
   );
 };
+
+export default ViewJob;

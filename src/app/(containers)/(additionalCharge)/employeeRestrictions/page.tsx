@@ -1,17 +1,18 @@
+"use client";
 import { useEffect, useState } from "react";
 import { useAxios } from "@/hooks";
-import { endPoints } from "../../../static";
 import { AdditionalChargeForm } from "./form";
 import { permissionObject } from "./permissionData";
-import { AdditionalChargeInteface } from "../Interfaces";
+import { endPoints } from "@/static";
+import { AdditionalChargeInteface } from "../../Interfaces";
 
-export const AdditionalCharge = () => {
+const { GET_EMPLOYEE, GET_PERMISSION } = endPoints;
+
+const AdditionalCharge = () => {
   const { callAxios } = useAxios();
-
-  const { GET_EMPLOYEE, GET_PERMISSION } = endPoints;
-  const [employee, setEmployee] = useState<any>();
-  const [isCheck, setIsCheck] = useState<boolean>(false);
+  const [employee, setEmployee] = useState<any>([]);
   const [permission, setPermission] = useState<any>();
+  const [isCheck, setIsCheck] = useState<boolean>(false);
 
   const [initialValue, setInitialValue] = useState<AdditionalChargeInteface>({
     employeeId: "",
@@ -33,7 +34,7 @@ export const AdditionalCharge = () => {
     // eslint-disable-next-line
   }, []);
 
-  const employeePermission = (value) => {
+  const employeePermission = (value: any) => {
     callAxios({
       method: "get",
       url: `${GET_PERMISSION}/${value.roleid}`,
@@ -41,7 +42,7 @@ export const AdditionalCharge = () => {
       setPermission(res?.data[0]?.module);
     });
   };
-  const handleSubmit = (values) => {
+  const handleSubmit = (values: any) => {
     setIsCheck(true);
     setTimeout(() => {
       console.log("Final Values", values);
@@ -60,3 +61,5 @@ export const AdditionalCharge = () => {
     />
   );
 };
+
+export default AdditionalCharge;
