@@ -38,15 +38,15 @@ export const TableX = ({ headingTitle, TableData }: TableProps) => {
       <Table aria-label="customized table">
         <TableHead>
           <TableRow>
-            {headingTitle.map((title) => (
+            {headingTitle.map((title: { label: string }) => (
               <StyledTableCell align="left">{title.label}</StyledTableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {TableData?.map((data: any, i) => (
+          {TableData?.map((data: any, i: number) => (
             <StyledTableRow key={i}>
-              {headingTitle.map((column) => (
+              {headingTitle.map((column: { id: number }) => (
                 <StyledTableCell component="th" scope="row">
                   {data[column.id]}
                 </StyledTableCell>

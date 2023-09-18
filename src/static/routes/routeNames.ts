@@ -21,7 +21,7 @@ export const routeNames = {
   EDIT_DEPARTMENT: "/EditDepartment",
   SELECT_PERMISSION: "/selectpermission",
   ADDITIONAL_CHARGE: "/employeeRestrictions",
-  CREATE_ORGANIZATION: "/createOrganization",
+  CREATE_ORGANIZATION: "organization/create",
   NEW_APPLICATION: "/application/newapplication",
   VIEW_SUBMIITED_APPLICATIONS: "/application/submitted",
   CREATE_JOB: "/jobs/create",

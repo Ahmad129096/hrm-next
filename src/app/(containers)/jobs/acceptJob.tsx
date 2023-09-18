@@ -13,12 +13,11 @@ import {
   ListItemAvatar,
 } from "@mui/material";
 import { endPoints } from "../../../static";
-import { Icons } from "../../../app/shared";
-import { useAxios } from "../../../app/Hooks";
-import { useNavigate, useParams } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
-import { useAppDispatch } from "../../../app/Hooks/useDispacter";
-import { showSnackbar } from "../../../store/slice/snackbarSlice";
+import { useAppDispatch, useAxios } from "@/hooks";
+import { showSnackbar } from "@/redux/slices/snackbarSlice";
+import { Icons } from "@/shared";
+import { useParams, useRouter } from "next/navigation";
 // Formik
 
 const StyledTextField = styled(TextField)`
@@ -30,8 +29,8 @@ const StyledTextField = styled(TextField)`
 const { MdTitle, FcDepartment, BsFillPersonCheckFill } = Icons;
 
 export const JobAcceptPage = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const params = useParams();
+  const router = useRouter();
   const { callAxios } = useAxios();
   const dispatch = useAppDispatch();
   const { JOBDETAILS } = endPoints;
@@ -40,7 +39,7 @@ export const JobAcceptPage = () => {
   useEffect(() => {
     callAxios({
       method: "get",
-      url: `${JOBDETAILS}/${id}`,
+      url: `${JOBDETAILS}/${params?.id}`,
     }).then((res: any) => {
       console.log(res, "jobs");
       if (res) {
@@ -48,15 +47,15 @@ export const JobAcceptPage = () => {
       }
     });
     // eslint-disable-next-line
-  }, [id]);
-  const publish = (value) => {
+  }, [params?.id]);
+  const publish = (value: any) => {
     callAxios({
       method: "put",
-      url: `api/publishjobsControllers/${id}`,
+      url: `api/publishjobsControllers/${params?.id}`,
       data: value,
     }).then((res: any) => {
       dispatch(showSnackbar({ message: res.message }));
-      navigate("/viewjob");
+      router.push("/viewjob");
     });
   };
   return (
@@ -149,7 +148,7 @@ export const JobAcceptPage = () => {
                 <Button variant="contained" color="error">
                   Reject
                 </Button>
-                <Button onClick={() => navigate("/viewjob")}>Cancel</Button>
+                <Button onClick={() => router.push("/viewjob")}>Cancel</Button>
               </Stack>
             </Form>
           </Formik>

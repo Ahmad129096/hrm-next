@@ -10,12 +10,13 @@ import {
   ListItemAvatar,
 } from "@mui/material";
 import { endPoints, routeNames } from "../../../static";
-import { Icons } from "../../../app/shared";
-import { useAxios } from "../../../app/Hooks";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "next/navigation";
+import { useAxios } from "@/hooks";
+import { Icons } from "@/shared";
+import Link from "next/link";
 
 export const JobDetailPage = () => {
-  const { id } = useParams();
+  const params = useParams();
   const { callAxios } = useAxios();
   const { JOBDETAILS } = endPoints;
   const { NEW_APPLICATION } = routeNames;
@@ -30,14 +31,14 @@ export const JobDetailPage = () => {
   useEffect(() => {
     callAxios({
       method: "get",
-      url: `${JOBDETAILS}/${id}`,
+      url: `${JOBDETAILS}/${params?.id}`,
     }).then((res: any) => {
       if (res) {
         setJob(res?.data);
       }
     });
     // eslint-disable-next-line
-  }, [id]);
+  }, [params?.id]);
   return (
     <div>
       {job && (
@@ -122,7 +123,7 @@ export const JobDetailPage = () => {
               />
             </ListItem>
             <Button>
-              <Link to={`${NEW_APPLICATION}`}>Apply</Link>
+              <Link href={NEW_APPLICATION}>Apply</Link>
             </Button>
           </List>
         </div>
