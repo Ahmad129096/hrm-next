@@ -3,7 +3,7 @@ import { params, axiosResponse } from "./Types";
 import { useAppSelector } from "./useSelector";
 
 export const useAxios = () => {
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = "http://localhost:5000/api";
   const value = useAppSelector((state) => state.auth);
 
   const callAxios = ({ method, data, url, isJsonType, headers }: params) => {

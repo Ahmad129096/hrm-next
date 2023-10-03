@@ -4,7 +4,7 @@ import { showSnackbar } from "@/redux/slices/snackbarSlice";
 import { store } from "@/redux/store";
 
 export const _instance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "http://localhost:5000/api",
 });
 
 const { dispatch } = store;
