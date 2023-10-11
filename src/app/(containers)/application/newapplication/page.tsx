@@ -168,7 +168,7 @@ const NewApplication = () => {
                     label={"Pre Source"}
                     type="select"
                     id="source"
-                    helperText={<ErrorMessage name="source" />}
+                    helpertext={<ErrorMessage name="source" />}
                     error={props.errors.source && props.touched.source}
                     disabled={check}
                   >
@@ -187,7 +187,7 @@ const NewApplication = () => {
                     fullWidth
                     name="coverLetter"
                     id="coverLetter"
-                    helperText={<ErrorMessage name="coverLetter" />}
+                    helpertext={<ErrorMessage name="coverLetter" />}
                     error={
                       props.errors.coverLetter && props.touched.coverLetter
                     }

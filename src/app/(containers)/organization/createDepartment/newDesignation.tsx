@@ -131,7 +131,7 @@ export const NewDesignation = ({
                                     size={FIELD_SIZE}
                                     type={TYPE_SELECT}
                                     id="departmentName"
-                                    helperText={
+                                    helpertext={
                                       <ErrorMessage name="departmentName" />
                                     }
                                     error={
@@ -159,7 +159,7 @@ export const NewDesignation = ({
                                     label={DES_NAME}
                                     name="designationName"
                                     autoComplete="name"
-                                    helperText={
+                                    helpertext={
                                       <ErrorMessage name="designationName" />
                                     }
                                     error={

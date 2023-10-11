@@ -174,7 +174,7 @@ export const EmployeeForm = ({
                                         label="Name"
                                         margin={MARGIN}
                                         size={FIELD_SIZE}
-                                        helperText={
+                                        helpertext={
                                           <ErrorMessage name="name" />
                                         }
                                         error={
@@ -191,7 +191,7 @@ export const EmployeeForm = ({
                                         margin={MARGIN}
                                         size={FIELD_SIZE}
                                         autoComplete="email"
-                                        helperText={
+                                        helpertext={
                                           <ErrorMessage name="email" />
                                         }
                                         error={
@@ -209,7 +209,7 @@ export const EmployeeForm = ({
                                     label="Cnic Number"
                                     margin={MARGIN}
                                     size={FIELD_SIZE}
-                                    helperText={<ErrorMessage name="cnicNo" />}
+                                    helpertext={<ErrorMessage name="cnicNo" />}
                                     error={
                                       props.errors.cnicNo &&
                                       props.touched.cnicNo
@@ -225,7 +225,7 @@ export const EmployeeForm = ({
                                     margin={MARGIN}
                                     size={FIELD_SIZE}
                                     autoComplete="phone"
-                                    helperText={<ErrorMessage name="salary" />}
+                                    helpertext={<ErrorMessage name="salary" />}
                                     error={
                                       props.errors.salary &&
                                       props.touched.salary
@@ -241,7 +241,7 @@ export const EmployeeForm = ({
                                     name="phoneNumber"
                                     label="Phone Number"
                                     autoComplete="phonenumber"
-                                    helperText={
+                                    helpertext={
                                       <ErrorMessage name="phoneNumber" />
                                     }
                                     error={
@@ -258,7 +258,7 @@ export const EmployeeForm = ({
                                     size={FIELD_SIZE}
                                     name="optionalNumber"
                                     label="Secondary Phone Number"
-                                    helperText={
+                                    helpertext={
                                       <ErrorMessage name="optionalNumber" />
                                     }
                                     error={
@@ -311,7 +311,7 @@ export const EmployeeForm = ({
                                                   size={FIELD_SIZE}
                                                   label="Level of Education"
                                                   name={`education[${index}].educationLevel`}
-                                                  helperText={
+                                                  helpertext={
                                                     <ErrorMessage
                                                       name={`education[${index}].educationLevel`}
                                                     />
@@ -333,7 +333,7 @@ export const EmployeeForm = ({
                                                   size={FIELD_SIZE}
                                                   name={`education[${index}].educationSubject`}
                                                   label="Major Subjects"
-                                                  helperText={
+                                                  helpertext={
                                                     <ErrorMessage
                                                       name={`education[${index}].educationSubject`}
                                                     />
@@ -355,7 +355,7 @@ export const EmployeeForm = ({
                                                   size={FIELD_SIZE}
                                                   name={`education[${index}].instituteName`}
                                                   label="Institute Name"
-                                                  helperText={
+                                                  helpertext={
                                                     <ErrorMessage
                                                       name={`education[${index}].instituteName`}
                                                     />
@@ -378,7 +378,7 @@ export const EmployeeForm = ({
                                                   size={FIELD_SIZE}
                                                   name={`education[${index}].YearOfeducation`}
                                                   label="Year Of Education"
-                                                  helperText={
+                                                  helpertext={
                                                     <ErrorMessage
                                                       name={`education[${index}].YearOfeducation`}
                                                     />
@@ -452,7 +452,7 @@ export const EmployeeForm = ({
                                                   size={FIELD_SIZE}
                                                   name={`experience[${index}].experiencetitle`}
                                                   label="Title"
-                                                  helperText={
+                                                  helpertext={
                                                     <ErrorMessage
                                                       name={`experience[${index}].experiencetitle`}
                                                     />
@@ -472,7 +472,7 @@ export const EmployeeForm = ({
                                                   multiline
                                                   label="Description"
                                                   name={`experience[${index}].experienceDescription`}
-                                                  helperText={
+                                                  helpertext={
                                                     <ErrorMessage
                                                       name={`experience[${index}].experienceDescription`}
                                                     />
@@ -496,7 +496,7 @@ export const EmployeeForm = ({
                                                   size={FIELD_SIZE}
                                                   name={`experience[${index}].experienceYears`}
                                                   label="Year of experience"
-                                                  helperText={
+                                                  helpertext={
                                                     <ErrorMessage
                                                       name={`experience[${index}].experienceYears`}
                                                     />
@@ -563,7 +563,7 @@ export const EmployeeForm = ({
                                       id="departmentName"
                                       name="departmentName"
                                       defaultValue={initialValue.departmentName}
-                                      helperText={
+                                      helpertext={
                                         <ErrorMessage name="departmentName" />
                                       }
                                       error={
@@ -592,7 +592,7 @@ export const EmployeeForm = ({
                                       id="designationName"
                                       name="designationName"
                                       disabled={!props.values.departmentName}
-                                      helperText={
+                                      helpertext={
                                         <ErrorMessage name="designationName" />
                                       }
                                       error={

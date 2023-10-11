@@ -94,7 +94,7 @@ export const AdditionalChargeForm = ({
                           ...params.InputProps,
                           endAdornment: <>{params.InputProps.endAdornment}</>,
                         }}
-                        helperText={<ErrorMessage name="employee" />}
+                        helpertext={<ErrorMessage name="employee" />}
                         error={props.errors.employee && props.touched.employee}
                         disabled={isCheck}
                       />
@@ -188,7 +188,7 @@ export const AdditionalChargeForm = ({
                       value="Restriction"
                       control={<Radio />}
                       label="Restriction"
-                      helperText={<ErrorMessage name="permissionType" />}
+                      helpertext={<ErrorMessage name="permissionType" />}
                       error={
                         props.errors.permissionType &&
                         props.touched.permissionType
@@ -200,7 +200,7 @@ export const AdditionalChargeForm = ({
                       value="Additional Charge"
                       control={<Radio />}
                       label="Additional Charge"
-                      helperText={<ErrorMessage name="permissionType" />}
+                      helpertext={<ErrorMessage name="permissionType" />}
                       error={
                         props.errors.permissionType &&
                         props.touched.permissionType

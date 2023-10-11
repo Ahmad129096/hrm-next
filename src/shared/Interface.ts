@@ -6,7 +6,7 @@ export interface InputFieldProps {
   label?: string;
   size?: string;
   type?: "text" | "number" | "password" | any;
-  helperText?: any;
+  helpertext?: any;
   error?: any;
   value?: any;
   autoComplete?: string;

@@ -78,7 +78,7 @@ export const ResetOtpForm = ({
                         label={ENTER_OTP}
                         name="otp"
                         autoComplete="otp"
-                        helperText="otp"
+                        helpertext="otp"
                         error={props.errors.otp && props.touched.otp}
                         autoFocus
                         disabled={isCheck}

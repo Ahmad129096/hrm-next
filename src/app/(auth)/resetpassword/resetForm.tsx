@@ -85,7 +85,7 @@ export const ResetForm = ({
                         label={NEWPASSWORD}
                         type={showPassword ? "text" : "password"}
                         id="outlined-adornment-password"
-                        helperText={<ErrorMessage name="password" />}
+                        helpertext={<ErrorMessage name="password" />}
                         error={props.errors.password && props.touched.password}
                         autoComplete="current-password"
                         InputProps={{
@@ -118,7 +118,7 @@ export const ResetForm = ({
                         size={FIELD_SIZE}
                         type={showconfirmPassword ? "text" : "password"}
                         id="confirmPassword"
-                        helperText={<ErrorMessage name="confirmPassword" />}
+                        helpertext={<ErrorMessage name="confirmPassword" />}
                         error={
                           props.errors.confirmPassword &&
                           props.touched.confirmPassword

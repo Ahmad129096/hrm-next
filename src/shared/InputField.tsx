@@ -8,7 +8,7 @@ export const InputField = ({
   label,
   size,
   type,
-  helperText,
+  helpertext,
   error,
   autoComplete,
   disabled,
@@ -19,8 +19,8 @@ export const InputField = ({
   onSelect,
   onPaste,
   onInput,
-  value
-}: InputFieldProps) => { 
+  value,
+}: InputFieldProps) => {
   return (
     <Field
       as={TextField}
@@ -32,7 +32,7 @@ export const InputField = ({
       label={label}
       size={size}
       type={type}
-      helperText={<ErrorMessage name={helperText} />}
+      helpertext={<ErrorMessage name={helpertext} />}
       error={error}
       autoComplete={autoComplete}
       disabled={disabled}
@@ -46,11 +46,10 @@ export const InputField = ({
   );
 };
 
-
 export const CheckField = ({
   id,
   name,
-  helperText,
+  helpertext,
   error,
   disabled,
   label,
@@ -66,7 +65,7 @@ export const CheckField = ({
       value={value}
       onChange={onChange}
       control={<Checkbox color="primary" />}
-      helperText={<ErrorMessage name={helperText} />}
+      helpertext={<ErrorMessage name={helpertext} />}
       error={error}
       disabled={disabled}
     />
@@ -79,7 +78,7 @@ export const MenuField = ({
   label,
   size,
   type,
-  helperText,
+  helpertext,
   error,
   autoComplete,
   disabled,
@@ -88,7 +87,7 @@ export const MenuField = ({
   fullWidth,
   autoFocus,
   menuData,
-  onSelect
+  onSelect,
 }: InputFieldProps) => {
   return (
     <Field
@@ -99,7 +98,7 @@ export const MenuField = ({
       label={label}
       size={size}
       type={type}
-      helperText={<ErrorMessage name={helperText} />}
+      helpertext={<ErrorMessage name={helpertext} />}
       error={error}
       autoComplete={autoComplete}
       disabled={disabled}

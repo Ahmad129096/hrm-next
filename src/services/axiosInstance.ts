@@ -2,6 +2,7 @@ import axios from "axios";
 import { logout } from "@/redux/slices/authSlice";
 import { showSnackbar } from "@/redux/slices/snackbarSlice";
 import { store } from "@/redux/store";
+import { signOut } from "next-auth/react";
 
 export const _instance = axios.create({
   baseURL: "http://localhost:5000/api",
@@ -35,6 +36,7 @@ _instance.interceptors.response.use(
     } else if (response.status === 401) {
       if (response.data.message === "jwt expired" && response.status === 401) {
         dispatch(logout());
+        signOut();
       }
       return dispatch(
         showSnackbar({ message: response.data.message, type: "error" })

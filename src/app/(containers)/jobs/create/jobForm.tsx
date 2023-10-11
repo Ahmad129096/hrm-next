@@ -226,7 +226,7 @@ export const JobForm = ({
                             label={"Salary Range"}
                             size={"small"}
                             id="salaryrange"
-                            helperText="salaryRange"
+                            helpertext="salaryRange"
                             menuData={data.map((option: any, i) => (
                               <MenuItem
                                 key={i}
@@ -244,7 +244,7 @@ export const JobForm = ({
                             label={"Employment Type"}
                             size={"small"}
                             id="employmentType"
-                            helperText="employmentType"
+                            helpertext="employmentType"
                             menuData={employmentType.map((option: any, i) => (
                               <MenuItem key={i} value={option.type ?? " "}>
                                 {option?.type ?? " "}
