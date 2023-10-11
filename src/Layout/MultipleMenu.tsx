@@ -9,27 +9,20 @@ import {
 } from "@mui/material";
 import { Icons } from "@/shared";
 import { MenuItem } from "./MenuItem";
-import { usePathname } from "next/navigation";
 
 const { MdExpandMore, MdExpandLess } = Icons;
 
 export const MultiLevel = ({ item, router }: any) => {
   const { items: children } = item;
-  const location: any = usePathname();
 
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen((prev) => !prev);
   };
-
   return (
     <Fragment>
-      <ListItemButton
-        onClick={handleClick}
-        disabled={item.status}
-        selected={location?.pathname === item.url}
-      >
+      <ListItemButton onClick={handleClick} disabled={item.status}>
         <ListItemIcon>{item.Icon}</ListItemIcon>
         <ListItemText
           primary={item.name}
