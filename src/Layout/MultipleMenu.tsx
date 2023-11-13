@@ -27,7 +27,7 @@ export const MultiLevel = ({ item, router }: any) => {
         <ListItemText
           primary={item.name}
           onClick={() => {
-            if (item.url) router.push(item.url);
+            if (item.url) router.push(item.url, { shallow: true });
           }}
         />
         {open ? <MdExpandLess /> : <MdExpandMore />}

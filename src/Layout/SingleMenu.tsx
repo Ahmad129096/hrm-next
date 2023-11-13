@@ -7,7 +7,7 @@ export const SingleLevel = ({ item, router }: any) => {
       selected={pathname === item.url}
       disabled={item.status}
       onClick={() => {
-        if (item.url) router.push(item.url);
+        if (item.url) router.push(item.url, { shallow: true });
       }}
     >
       <ListItemIcon>{item.Icon}</ListItemIcon>

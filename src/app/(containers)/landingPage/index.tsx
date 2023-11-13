@@ -24,7 +24,7 @@ export const Welcome = () => {
       router.push(CREATE_ORGANIZATION);
     }
     callAxios({
-      url: "api/dashboard-data",
+      url: "/dashboard-data",
     }).then((res: any) => {
       setData({
         job: res?.jobData,
