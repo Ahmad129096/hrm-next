@@ -8,11 +8,11 @@ import { EmployeeForm } from "../employeeForm";
 
 const {
   LOGO_DELETE,
-  ADD_EMPLOYEE,
+  ADD_EMPLOYEES,
   UPDATE_EMPLOYEE,
   ORGANIZATION_LOGO,
   SELECT_DEPARTMENTS,
-  EMPLOYEES_BYID,
+  EMPLOYEES,
 } = endPoints;
 
 const Addemployees = () => {
@@ -62,7 +62,7 @@ const Addemployees = () => {
     callAxios({
       method: "post",
       data: values,
-      url: `${ADD_EMPLOYEE}`,
+      url: `${ADD_EMPLOYEES}`,
     }).then((res: any) => {
       if (res.isError === true) {
         dispatch(showSnackbar({ message: res?.message }));
@@ -122,7 +122,7 @@ const Addemployees = () => {
     if (params?.id) {
       callAxios({
         method: "get",
-        url: `${EMPLOYEES_BYID}/${params?.id}`,
+        url: `${EMPLOYEES}/${params?.id}`,
       }).then((res: any) => {
         console.log("1111111", res);
         const profileData = res.profileData;

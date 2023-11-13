@@ -87,7 +87,7 @@ export const ForgetPasswordForm = ({
                         size={FIELD_SIZE}
                         name="email"
                         autoComplete="email"
-                        helpertext={<ErrorMessage name="email" />}
+                        helperText={<ErrorMessage name="email" />}
                         error={props.errors.email && props.touched.email}
                         disabled={isCheck}
                       />

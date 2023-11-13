@@ -166,7 +166,7 @@ export const CreateOrgForm = ({
                             label={ORGANIZATION_NAME}
                             name="organizationName"
                             autoComplete="name"
-                            helpertext="organizationName"
+                            helperText="organizationName"
                             error={
                               props.errors.organizationName &&
                               props.touched.organizationName
@@ -181,7 +181,7 @@ export const CreateOrgForm = ({
                             label={ORGANIZATION_CATEGORY}
                             size={FIELD_SIZE}
                             id="organizationTypeId"
-                            helpertext="organizationTypeId"
+                            helperText="organizationTypeId"
                             error={
                               props.errors.organizationTypeId &&
                               props.touched.organizationTypeId
@@ -204,7 +204,7 @@ export const CreateOrgForm = ({
                               size={FIELD_SIZE}
                               type={TYPE_ZIP}
                               id="zipCode"
-                              helpertext={<ErrorMessage name="zipCode" />}
+                              helperText={<ErrorMessage name="zipCode" />}
                               error={
                                 props.errors.zipCode && props.touched.zipCode
                               }
@@ -259,7 +259,7 @@ export const CreateOrgForm = ({
                                       </Fragment>
                                     ),
                                   }}
-                                  helpertext={<ErrorMessage name="country" />}
+                                  helperText={<ErrorMessage name="country" />}
                                   error={
                                     props.errors.country &&
                                     props.touched.country
@@ -332,7 +332,7 @@ export const CreateOrgForm = ({
                                         </Fragment>
                                       ),
                                     }}
-                                    helpertext={
+                                    helperText={
                                       <ErrorMessage name="province" />
                                     }
                                     error={
@@ -399,7 +399,7 @@ export const CreateOrgForm = ({
                                       </Fragment>
                                     ),
                                   }}
-                                  helpertext={<ErrorMessage name="city" />}
+                                  helperText={<ErrorMessage name="city" />}
                                   error={
                                     props.errors.city && props.touched.city
                                   }
@@ -424,7 +424,7 @@ export const CreateOrgForm = ({
                             size={FIELD_SIZE}
                             type={TYPE_EMAIL}
                             id="organizationEmail"
-                            helpertext={
+                            helperText={
                               <ErrorMessage name="organizationEmail" />
                             }
                             error={
@@ -442,7 +442,7 @@ export const CreateOrgForm = ({
                             size={FIELD_SIZE}
                             type={TYPE_TEL}
                             id="phoneNumber"
-                            helpertext={<ErrorMessage name="phoneNumber" />}
+                            helperText={<ErrorMessage name="phoneNumber" />}
                             error={
                               props.errors.phoneNumber &&
                               props.touched.phoneNumber
@@ -458,7 +458,7 @@ export const CreateOrgForm = ({
                             size={FIELD_SIZE}
                             type={TYPE_URL}
                             id="subDomain"
-                            helpertext={<ErrorMessage name="subDomain" />}
+                            helperText={<ErrorMessage name="subDomain" />}
                             error={
                               props.errors.subDomain && props.touched.subDomain
                             }
@@ -474,7 +474,7 @@ export const CreateOrgForm = ({
                             size={FIELD_SIZE}
                             type={TYPE_MONTH}
                             id="yearEstablished"
-                            helpertext={<ErrorMessage name="yearEstablished" />}
+                            helperText={<ErrorMessage name="yearEstablished" />}
                             disabled={check}
                             inputProps={{
                               max: `${new Date().getFullYear()}-${

@@ -102,7 +102,7 @@ export const EditDepartmentForm = ({
                       handleNameChange(department._id, e.target.value)
                     }
                     error={Boolean(errors[department._id])}
-                    helpertext={errors[department._id]}
+                    helperText={errors[department._id]}
                   />
                 </TableCell>
                 <TableCell>

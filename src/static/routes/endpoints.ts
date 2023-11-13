@@ -25,6 +25,7 @@ export const endPoints = {
   ADD_EMPLOYEES: "/createEmployee",
   VIEW_EMPLOYEES: "/viewEmployee",
   DELETE_EMPLOYEE: "/deleteEmployee",
+  CREATE_DESIGNATION: "/designations",
 
   GET_EMPLOYEE: "/responsibleperson",
   GET_PERMISSION: "/employeePermission",

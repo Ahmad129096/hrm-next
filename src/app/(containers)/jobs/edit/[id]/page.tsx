@@ -12,7 +12,7 @@ const {
   ORGANIZATION_LOGO,
   LOGO_DELETE,
   GET_EMPLOYEE,
-  GET_DEPARTMENT,
+  GET_DEPARTMENTS,
   CREATE_JOB,
   // GET_DESIGNATION,
 } = endPoints;
@@ -37,7 +37,7 @@ const EditJob = () => {
       url: GET_EMPLOYEE,
     });
     const DepartmentResponse = callAxios({
-      url: GET_DEPARTMENT,
+      url: GET_DEPARTMENTS,
     });
     // const DesignationResponse = callAxios({
     //   url: GET_DESIGNATION,

@@ -67,7 +67,7 @@ export const NewDepartmentForm = ({
                           size={FIELD_SIZE}
                           label={DEP_NAME}
                           name="departmentName"
-                          helpertext={<ErrorMessage name="departmentName" />}
+                          helperText={<ErrorMessage name="departmentName" />}
                           error={
                             props.errors.departmentName &&
                             props.touched.departmentName

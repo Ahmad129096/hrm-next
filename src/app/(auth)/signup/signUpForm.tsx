@@ -99,7 +99,7 @@ export const SignUpForm = ({
                         required={true}
                         fullWidth={true}
                         label={USERNAME}
-                        helpertext="name"
+                        helperText="name"
                         size={FIELD_SIZE}
                         autoComplete="name"
                         value={inputValue}
@@ -181,7 +181,7 @@ export const SignUpForm = ({
                         label={EMAIL}
                         margin={MARGIN}
                         size={FIELD_SIZE}
-                        helpertext="email"
+                        helperText="email"
                         disabled={isCheck}
                         autoComplete="email"
                         error={props.errors.email && props.touched.email}
@@ -197,7 +197,7 @@ export const SignUpForm = ({
                         onDrop={handleChange}
                         onCopy={handleChange}
                         onPaste={handleChange}
-                        helpertext="password"
+                        helperText="password"
                         autoComplete="current-password"
                         id="outlined-adornment-password"
                         type={showPassword ? "text" : "password"}
@@ -236,7 +236,7 @@ export const SignUpForm = ({
                         onCopy={handleChange}
                         onPaste={handleChange}
                         type={showconfirmPassword ? "text" : "password"}
-                        helpertext="confirmPassword"
+                        helperText="confirmPassword"
                         error={
                           props.errors.confirmPassword &&
                           props.touched.confirmPassword
@@ -269,7 +269,7 @@ export const SignUpForm = ({
                             <Field
                               name="check"
                               type="checkbox"
-                              helpertext="check"
+                              helperText="check"
                               error={props.touched.check && props.errors.check}
                               style={{
                                 transform: "scale(1.2)",

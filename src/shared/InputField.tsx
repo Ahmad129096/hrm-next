@@ -8,7 +8,7 @@ export const InputField = ({
   label,
   size,
   type,
-  helpertext,
+  helperText,
   error,
   autoComplete,
   disabled,
@@ -32,7 +32,7 @@ export const InputField = ({
       label={label}
       size={size}
       type={type}
-      helpertext={<ErrorMessage name={helpertext} />}
+      helperText={<ErrorMessage name={helperText} />}
       error={error}
       autoComplete={autoComplete}
       disabled={disabled}
@@ -49,7 +49,7 @@ export const InputField = ({
 export const CheckField = ({
   id,
   name,
-  helpertext,
+  helperText,
   error,
   disabled,
   label,
@@ -65,7 +65,7 @@ export const CheckField = ({
       value={value}
       onChange={onChange}
       control={<Checkbox color="primary" />}
-      helpertext={<ErrorMessage name={helpertext} />}
+      helperText={<ErrorMessage name={helperText} />}
       error={error}
       disabled={disabled}
     />
@@ -78,7 +78,7 @@ export const MenuField = ({
   label,
   size,
   type,
-  helpertext,
+  helperText,
   error,
   autoComplete,
   disabled,
@@ -98,7 +98,7 @@ export const MenuField = ({
       label={label}
       size={size}
       type={type}
-      helpertext={<ErrorMessage name={helpertext} />}
+      helperText={<ErrorMessage name={helperText} />}
       error={error}
       autoComplete={autoComplete}
       disabled={disabled}

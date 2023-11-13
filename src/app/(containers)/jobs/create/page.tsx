@@ -12,7 +12,7 @@ const {
   CREATE_JOB,
   GET_EMPLOYEE,
   JOB_SEARCH_TAG,
-  GET_DEPARTMENT,
+  GET_DEPARTMENTS,
   ORGANIZATION_LOGO,
 } = endPoints;
 const { IMG_MSG } = Labels;
@@ -35,7 +35,7 @@ const CreateJob = () => {
       url: GET_EMPLOYEE,
     });
     const DepartmentResponse = callAxios({
-      url: GET_DEPARTMENT,
+      url: GET_DEPARTMENTS,
     });
 
     Promise.all([DepartmentResponse, EmployeeResponse, TagResponse]).then(
